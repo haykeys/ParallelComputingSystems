@@ -1,9 +1,11 @@
 #include <cstdio> // C
 #include <iostream> // C++ lib
 #include <thread>
+#include <vector>
+using namespace std;
 
 int hello(int num) {
-	std::cout << "Hello from " << num << std::endl;
+	cout << "Hello from " << num << endl;
 	return num;
 }
 
@@ -13,11 +15,16 @@ int main() {
 
 	printf("Hello, world! %d\n", c);
 
-	std::thread thread1(hello, 1);
-	std::thread thread2(hello, 2);
+	vector<thread> threads;
 
-	thread1.join();
-	thread2.join();
+	for (auto i = 0; i < c; i++) {
+		threads.emplace_back(hello, i);
+	}
 
-	std::cout << "Hola, mundo! " << 1 << std::endl;
+	for (thread& t : threads) {
+		t.join();
+	}
+
+	cout << "Hola, mundo! This is the end. " << endl;
 }
+
