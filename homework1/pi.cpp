@@ -27,7 +27,7 @@ void quadrant(int iter, double xmin, double xmax, double ymin, double ymax, doub
 
 int main() {
     double x, y;
-    long int iter = 3;
+    long int iter = 1000;
     vector<double> out(4);
     // vector<thread> threads
 
@@ -51,7 +51,7 @@ int main() {
 
     long inside = (out[0] + out[1] + out[2] + out[3]);
     long total = 4 * iter;
-    double pi = 4.0 * (inside / total);
+    double pi = 4.0 * (static_cast<double>(inside) / static_cast<double>(total));
 
     cout << "pi approximation = " << pi << "\n";
 
