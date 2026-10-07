@@ -1,1 +1,1 @@
-# csc263_Parallel_Computing_Systems
+# CSC263 Parallel Computing Systems
